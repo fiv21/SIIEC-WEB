@@ -6,5 +6,7 @@ urlpatterns = [
     #path del core
     path('', views.home, name="home"),
     path('formpaciente/', views.fomPaciente, name="form"),
-
+    path('cargapaciente/', views.cargaPacientes, name="pacienteform"),
+    
+    
 ]
