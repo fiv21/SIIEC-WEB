@@ -19,6 +19,7 @@ from core import views
 from antec import views
 from ergo import views
 from mpi  import views
+from usuarios import views
 
 
 urlpatterns = [
@@ -26,5 +27,6 @@ urlpatterns = [
     path('', include('antec.urls')),
     path('', include('ergo.urls')),
     path('', include('mpi.urls')),
+    path('', include('usuarios.urls')),
     path('admin/', admin.site.urls),
 ]

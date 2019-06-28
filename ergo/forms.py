@@ -4,7 +4,6 @@ from.models import Ergometria
 class FormErgometria(forms.ModelForm):
 
     class meta:
-
         model=Ergometria
     
         fields = [
