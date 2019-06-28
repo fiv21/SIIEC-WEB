@@ -111,38 +111,28 @@
 	    <thead>
 	      <tr>
 	        <th><input type="checkbox" value=""></th>
-	        <th>#Estudio</th>
-	        <th>Fecha</th>
-	        <th>Apellido</th>
 	        <th>Nombre</th>
+	        <th>Apellido</th>
 	        <th>DNI</th>
+	        <th>Cobertura medica</th>
+	        <th>Numero de afiliado</th>
 	      </tr>
 	    </thead>
 	    <tbody>
-	      <tr>
-	        <td><input type="checkbox" value=""></td>
-	        <td>John</td>
-	        <td>Doe</td>
-	        <td>john@example.com</td>
-	        <td>1</td>
-	        <td>2</td>
-	      </tr>
-	      <tr>
-	      <td><input type="checkbox" value=""></td>
-	        <td>Mary</td>
-	        <td>Moe</td>
-	        <td>mary@example.com</td>
-	         <td>3</td>
-	          <td>4</td>
-	      </tr>
-	      <tr>
-	      <td><input type="checkbox" value=""></td>
-	        <td>July</td>
-	        <td>Dooley</td>
-	        <td>july@example.com</td>
-	         <td>5</td>
-	          <td>6</td>
-	      </tr>
+		{% if antec %}
+		{% for antecedente in antec  %}
+	    <tr>
+	    	<td><input type="checkbox" value=""></td>
+	        <td>antecedente.nombre</td>
+	        <td>antecedente.apellido</td>
+	        <td>antecedente.dni</td>
+	        <td>antecedente.cobertura_medica</td>
+	        <td>antecedente.numero_afilido</td>
+		</tr>
+		{% endfor %}
+		{% else %}
+		   <h1>No hay</h1>
+		{% endif %}
 	    </tbody>
 	  </table>
 	
