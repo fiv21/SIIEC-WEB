@@ -120,7 +120,7 @@ class formAntecedentes(forms.ModelForm):
             }
 
             widgets = {
-                'paciente_antecedente':forms.Select(attrs={'class':'form-control' ,'style':'height:30px' }),
+                'paciente_antecedente':forms.Select(attrs={'class':'form-control' ,'style':'height:40px' }),
                 'fcrv_hta' :forms.CheckboxInput(attrs={'class':'form-control' ,'style':'height:30px' }),
                 'fcrv_dta' :forms.CheckboxInput(attrs={'class':'form-control' ,'style':'height:30px','type':'radio' }),
                 'fecha_fcrv_hta':forms.DateInput(attrs={'class':'form-control'}),

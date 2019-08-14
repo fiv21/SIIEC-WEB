@@ -1,0 +1,40 @@
+{% extends "core/base.html" %}  
+{% load static %}
+{% block content %}
+ <table class="table table-dark table-hover table-striped mb-0 " border="1" >
+    <thead style="background-color: purple;">
+      <tr>
+          
+          <th>Paciente</th>
+          <th>vol relat rest</th>
+          <th>vfdvi rest</th>
+          <th>fvsvi rest</th>
+          <th>Editar</th>
+          <th>Borrar</th>
+
+      </tr>
+    </thead>
+  <h1><center>FUNCION VENTRICULAR</center></h1>  
+
+    <form class="form-inline"  method="GET">
+  {% csrf_token %}
+    <input type="text" class="verde" placeholder="Buscar paciente.." name="q" style="" >
+      <button type="submit" class="azul"><i class="fa fa-search"></i></button>
+  </form>
+  <tbody>
+  {% for pac in eventos  %}
+ <tr>
+        
+          <td>{{pac.paciente_fv}}</td>
+          <td>{{pac.vol_relat_rest}}</td>
+          <td>{{pac.vfdvi_rest}}</td>
+          <td>{{pac.fvsvi_rest}}</td>
+         <td><a class="btn btn-info" href="{% url 'editaventricular' pac.id_func_vent %}" >Editar</a></td>
+         <td><a   class='btn btn-danger eliminar' href="{% url 'borraventricular' pac.id_func_vent %}" >Borrar</a></td>
+		
+   </tr>
+  
+  {% endfor %}
+     </tbody>
+     </table>
+{% endblock content %}

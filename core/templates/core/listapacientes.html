@@ -1,0 +1,44 @@
+{% extends "core/base.html" %}
+
+{% block content %}
+<table class="table table-dark table-hover table-striped mb-0 " border="1" >
+    <thead style="background-color: purple;">
+      <tr>
+          
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>DNI</th>
+          <th>Cobertura medica</th>
+          <th>Numero de afiliado</th>
+          <th>Editar</th>
+          <th>Borrar</th>
+
+      </tr>
+    </thead>
+  <h1><center>PACIENTES</center></h1>  
+  <form class="form-inline"  method="GET">
+  {% csrf_token %}
+    <input type="text" class="verde" placeholder="Buscar paciente.." name="q" style="" >
+      <button type="submit" class="azul"><i class="fa fa-search"></i></button>
+  </form>
+   <tbody>
+  {% for pac in eventos  %}
+ <tr>
+        
+          <td>{{pac.nombre}}</td>
+          <td>{{pac.apellido}}</td>
+          <td>{{pac.dni}}</td>
+          <td>{{pac.cobertura_medica}}</td>
+          <td>{{pac.numero_afilido}}</td>
+         <td><a class="btn btn-info" href="{% url 'editapac' pac.id_pac %}" >Editar</a></td>
+		<td><a   class='btn btn-danger eliminar' href="{% url 'borrarpac' pac.id_pac %}" >Borrar</a></td>
+   </tr>
+  
+  {% endfor %}
+     </tbody>
+     </table>
+{% endblock content %}
+
+   
+     
+  

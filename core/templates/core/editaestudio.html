@@ -1,0 +1,145 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% block content %}
+<!-- ******************************************************************INCLUYENDO ARCHIVOS ESTATICOS*********************************************************** -->
+  <link rel="stylesheet" href="{% static 'core/css/estilosEstudio.css' %}">
+  <script src="{% static 'core/js/funcionesEstudio.js' %}"></script>
+  
+<body>
+                                                                                      <hr>
+
+  <!-- ******************************************************************FORMULARIO BUSQUEDA************************************************************* -->
+
+<!-- ***************************************************************FORMULARIO ESTUDIO***************************************************************************** -->
+<form method="POST">
+    {% csrf_token %}
+            <div class="row">
+             <div class="form-group col-md-3"><label for="sel1">Paciente:</label>
+            {{form.pacientes}}
+         </div>
+                                                                                        <hr>
+<div class="container">
+
+        <div class="row">
+          <div class="form-group col-md-3"><label for="sel1">Institucion:</label>
+           {{form.instituciones}}
+           
+          </div>
+            <div class="form-group col-md-3">
+                  <label for="email">Edad:</label>
+                  {{form.edad}}
+                </div>
+        </div>   
+
+         <div class="row">
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="form_name">Peso (Kg): </label>
+                        {{form.peso}}
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="form_email">IMC:</label>
+                        {{form.imc}}                       
+                    </div>
+                </div>       
+          </div>
+
+          <div class="row">
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="form_name">Talla (Cm):</label>
+                        {{form.talla}}
+                     
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="form_email">Superficie Corporal (m<sup>2</sup>):</label>
+                        {{form.supCorporal}}
+                        
+                    </div>
+                </div>
+             
+            </div>
+
+ <div class="row">
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="form_name">Perimetro Abdominal:</label>
+                        {{form.perimetroAbdominal}}
+          
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="form_email">Decubito:</label>
+                        {{form.decubito}}
+                    
+                    </div>
+                </div>
+             
+
+ <div class="col-sm-4" >
+                    <div class="form-group "style="margin-top:  35px;">
+                        <label for="form_email" style="margin: 0px 0px 22px;">Urgencia:</label>
+                        {{form.urgencia}}
+                        
+                    </div>
+                </div>
+
+            </div>
+
+
+<div class="row">
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="form_name">Medico:</label>
+                     {{form.medico}}
+                        
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="form_email">Indicacion:</label>
+                        {{form.indicacion}}
+                    
+                    </div>
+                </div>
+             
+
+ <div class="col-sm-4" style="">
+                    <div class="form-group">
+>
+ 
+
+                      <!-- <input id="form_email" type="text" name="calidadTecnica" class="form-control" placeholder="" required="required" data-error="Valid email is required."> -->
+                       
+                        <label for="" style="float: center; ">Calidad Tecnica:</label>
+                     <div style="background-color: red;">
+                        {{form.calidadTecnica}}
+                     </div>
+                    </div>
+                </div>
+
+            </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="form_message">Observaciones:</label>
+                    {{form.observaciones}}
+                    
+                </div>
+            </div>
+           
+        </div>
+  </div>
+    
+    </form>
+ <div class="col-md-12">
+                <input type="submit" class="btn btn-warning btn-send" value="Guardar">
+            </div>
+</body>
+
+{% endblock content%}

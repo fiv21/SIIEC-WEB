@@ -25,37 +25,37 @@ class estudioFormu(forms.ModelForm):
             'observaciones',
         ]
         labels = {
-            
-            'pacientes' :'Paciente',
-            'instituciones' : 'Instituciones',
-            'medico' : 'Medico',
-            'peso' : 'Peso',
-            'talla' : 'Talla',
-            'indicacion' : 'Indicacion',
-            'decubito' : 'Decubito',
-            'perimetroAbdominal' : 'Perimetro abdominal',
-            'edad': 'Edad',
+            'pacientes':'Pacientes',         #se realizo cambio en el formulario con la relacion de la tabla paciente y estudio
+            'instituciones':'Instituciones',
+            'medico':'Medico',
+            'peso':'Peso',     
+            'talla':'Talla',
+            'indicacion':'Indicacion',
+            'decubito':'Decubito',
+            'perimetroAbdominal':'Perimetro abdominal',
+            'edad':'Edad',
             'urgencia':'Urgencia',
-            'imc' : 'Imc',
-            'supCorporal' : 'Superficie corporal',
-            'calidadTecnica' : 'Calidad tecnica',
-            'observaciones' : 'Observaciones',
+            'imc':'Imc',
+            'supCorporal':'Superficie corporal',
+            'calidadTecnica':'Calidad tecnica',
+            'observaciones':'Observaciones',
         }
-
+        
         widgets={
-            'pacientes':forms.Select(attrs={'class':'form-control' ,'style':'height:30px' }),
-            'instituciones':forms.Select(attrs={'class':'form-control','style':'height:30px'}),
+            'pacientes':forms.Select(attrs={'class':'form-control'}),
+            'instituciones':forms.TextInput(attrs={'class':'form-control'}),
             'medico':forms.TextInput(attrs={'class':'form-control'}),
             'peso':forms.TextInput(attrs={'class':'form-control'}),
+            'talla':forms.TextInput(attrs={'class':'form-control'}),
             'indicacion':forms.TextInput(attrs={'class':'form-control'}),
             'decubito':forms.TextInput(attrs={'class':'form-control'}),
             'perimetroAbdominal':forms.TextInput(attrs={'class':'form-control'}),
             'edad':forms.TextInput(attrs={'class':'form-control'}),
+            'urgencia':forms.TextInput(attrs={'class':'form-control'}),
             'imc':forms.TextInput(attrs={'class':'form-control'}),
             'supCorporal':forms.TextInput(attrs={'class':'form-control'}),
             'calidadTecnica':forms.TextInput(attrs={'class':'form-control'}),
-            'observaciones':forms.Textarea(attrs={'class':'form-control'}),
-            
+            'observaciones':forms.TextInput(attrs={'class':'form-control'}),
         }
 
 #crear Formulario de los pacientes.

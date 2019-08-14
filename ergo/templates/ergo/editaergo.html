@@ -1,53 +1,6 @@
 {% extends "core/base.html" %}
-{%block title%} <title>Ergometria</title>{%endblock%}
+{% load static %}
 {% block content %}
-{% load static %} <!-- Override files  -->
- <!-- ******************************************************************INCLUYENDO ARCHIVOS ESTATICOS*********************************************************** -->
-  <link rel="stylesheet" href="{% static 'ergo/css/estilosErgometria.css' %}">
-  <script src="{% static 'ergo/js/funcionesErgometria.js' %}"></script>
-<hr>
-<form class="form-inline"  method="GET">
-  {% csrf_token %}
-    <input type="text" class="verde" placeholder="Buscar paciente.." name="q" style="" >
-      <button type="submit" class="azul"><i class="fa fa-search"></i></button>
-  </form>
-<!-- ***************************************************************FORMULARIO ESTUDIO***************************************************************************** -->
-
-      <input type="text" name="paciente_ergo" id="id_pac_ergo" style="display: none;">
-
-<div class="table-wrapper-scroll-y my-custom-scrollbar table-responsive-sm">
-  <table class="table table-dark table-hover table-striped mb-0 " border="1" >
-    <thead style="background-color: purple;">
-      <tr>
-       <th>Paciente</th>
-          <th>Nombre</th>
-          <th>Apellido</th>
-          <th>DNI</th>
-          <th>Cobertura medica</th>
-          <th>Numero de afiliado</th>
-          <th style="display: none;">Fecha de Nacimiento</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% if eventos %}
-    {% for k in eventos %}
-  <tr>
-      <th><input type="radio" value="{{k.id_pac}}" name="d" id="{{k.fecha_nacimiento}}" ></th>
-          <td>{{k.nombre}}</td>
-          <td>{{k.apellido}}</td>
-          <td>{{k.dni}}</td>
-          <td>{{k.cobertura_medica}}</td>
-          <td>{{k.numero_afilido}}</td>
-          <td style="display: none;">{{k.fecha_nacimiento}}</td>
-    </tr>
-    {% endfor %}
-    {% else %}
-    {% endif %}
-    </tbody>
-  </table>
-</div>
-               
-<hr>
 <form method="POST">
     {% csrf_token %}
 	<div class="form-group form-inline ">
@@ -58,24 +11,25 @@
 	</div>
 			 -->
 	<div class="col-md-3 form-inline ">
+                    {{form.paciente_ergo}}
 			      <div class="form-check mr-sm-4">
-			        <input class="form-check-input " type="radio" name="ciclo_ergo">
+			        {{form.ciclo_ergo}}
 			        <label class="form-check-label" for="autoSizingCheck"> CICLO ÉRGONOMETRO(Kgm)</label>
 			      </div>
 			  </div>
 	
 	     <div class="col-md-3 form-inline">
 	     	 <label class="control-label ml-sm-2 mr-sm-2" for="inlineFormInput">Carga</label>
-	     	  <input type="text" class="form-control ml-sm-2 mr-sm-4" name="carga">
+	     	  {{form.carga}}
 	     </div>
 	<div class="col-md-3 form-inline">
 	
 		        <label class="control-label ml-sm-2 mr-sm-2" for="inlineFormInput">ST</label>
-		        <input type="text" class="form-control ml-sm-2  mr-sm-2" name="st">
+		        {{form.st}}
 	</div>
 	        <div class="col-md-3 form-inline"> 
 	        	<label class="control-label ml-sm-2 mr-sm-2" for="inlineFormInput">ST(mm)</label>
-	        		        <input type="text" class="form-control ml-sm-2  mr-sm-2" name="st_mm">
+	        		        {{form.st_mm}}
 	        		     	</div>
 	     	
 	  
@@ -85,23 +39,23 @@
 			
 	<div class="col-md-3 form-inline ">
 			      <div class="form-check mr-sm-4">
-			        <input class="form-check-input " type="radio" id="autoSizingCheck" name="banda_ergo">
+			        {{form.banda_ergo}}
 			        <label class="form-check-label" for="autoSizingCheck"> BANDA DESLIZANTE(%Grad/Km/h)</label>
 			      </div>
 			  </div>
 	
 	     <div class="col-md-3 form-inline">
 	     	 <label class="control-label ml-sm-2 mr-sm-2" for="inlineFormInput">METS</label>
-	     	  <input type="text" class="form-control ml-sm-2 mr-sm-4" id="inlineFormInput" name="mets" >
+	     	  {{form.mets}}
 	     </div>
 	<div class="col-md-3 form-inline">
 	
 		        <label class="control-label ml-sm-2 mr-sm-2" for="inlineFormInput">TAS BASAL</label>
-		        <input type="text" class="form-control ml-sm-2  mr-sm-2" id="inlineFormInput" name="tas_basal">
+		        {{form.tas_basal}}
 	</div>
 	        <div class="col-md-3 form-inline"> 
 	        	<label class="control-label ml-sm-2 mr-sm-2" for="inlineFormInput">TAS ESFUERZO</label>
-	        		        <input type="text" class="form-control ml-sm-2  mr-sm-2" id="inlineFormInput" name="tas_esfuerzo">
+	        		        {{form.tas_esfuerzo}}
 	        		     	</div>
 	     	
 	  
@@ -117,11 +71,11 @@
 	  <div class="col-md-3 form-inline ml-auto">
 	  		
 	  				      <label class="control-label ml-sm-2 mr-sm-2" for="inlineFormInput">TAD BASAL</label>
-	  				        <input type="text" class="form-control ml-sm-2" id="inlineFormInput" name="tad_basal">
+	  				        {{form.tad_basal}}
 	  			</div>
 		<div class="col-md-3 form-inline">
 						        <label class="control-label ml-sm-2 mr-sm-2" for="inlineFormInput">TAD ESFUERZO</label>
-						        <input type="text" class="form-control ml-sm-2" id="inlineFormInput" name="tad_esfuerzo">
+						        {{form.tad_esfuerzo}}
 						     	
 				     	</div>
 	  
@@ -132,22 +86,22 @@
 			
 	<div class="col-md-3 form-inline ">
 			        <label class=" mr-4" for="inlineFormCustomSelectPref">FC BASAL</label>
-					<input type="text" class="form-control ml-sm-2" id="inlineFormInput" name="fc_basal">
+					{{form.fc_basal}}
 
 
 			  </div>
 	
 	     <div class="col-md-3 form-inline ">
 			        <label class=" mr-4" for="inlineFormCustomSelectPref">FC ESFUERZO</label>
-					<input type="text" class="form-control ml-sm-2" id="inlineFormInput" name="fc_esfuerzo">
+					{{form.fc_esfuerzo}}
   </select></div>
 	<div class="col-md-3 form-inline ">
 			        <label class=" mr-4" for="inlineFormCustomSelectPref">TA PLANA</label>
- 					<input type="text" class="form-control ml-sm-2" id="inlineFormInput" name="ta_plana">
+ 					{{form.ta_plana}}
 					 </div>
 	        <div class="col-md-3 form-inline"> 
 	        	<label class="control-label ml-sm-2 mr-sm-2" for="inlineFormInput">FCM-EDAD:</label>
-	        	<input type="text" class="form-control ml-sm-2" id="inlineFormInput" name="fcm_edad">
+	        	{{form.fcm_edad}}
 	        		     	</div>
 	     	
 	  
@@ -160,17 +114,17 @@
 			
 	<div class="col-md-3 form-inline ">
 			        <label class=" mr-4" for="inlineFormCustomSelectPref">MOTIVO DE<br>SUSPENCIÓN</label>
-					<input type="text" class="form-control ml-sm-2" id="inlineFormInput" name="motivo_suspencion">
+					{{form.motivo_suspencion}}
 
 
 			  </div>
 	<div class="col-md-3 form-inline ">
 			        <label class=" mr-4" for="inlineFormCustomSelectPref">SINTOMAS</label>
-  					<input type="text" class="form-control ml-sm-2" id="inlineFormInput" name="sintomas">
+  					{{form.sintomas}}
 					  </div>
 	        <div class="col-md-3 form-inline ml-auto"> 
 	        	<label class="control-label ml-sm-2 mr-sm-2" for="inlineFormInput">%FCPM:</label>
-	        		        <input type="text" class="form-control ml-sm-2" id="inlineFormInput" name="percent_fcmp">
+	        		        {{form.percent_fcmp}}
 	        		     	</div>
 	     	
 	  
@@ -184,19 +138,19 @@
 			
 	<div class="col-md-3 form-inline ">
 			        <label class=" mr-4" for="inlineFormCustomSelectPref">ARRITMIA SV</label>
-					<input type="text" class="form-control ml-sm-2" id="inlineFormInput" name="arritmia_sv">
+					{{form.arritmia_sv}}
 
 
 			  </div>
 	
 	     	<div class="col-md-3 form-inline ">
 			        <label class=" mr-4" for="inlineFormCustomSelectPref">ARRITMIA V</label>
-					<input type="text" class="form-control ml-sm-2" id="inlineFormInput" name="arritmia_v">
+					{{form.arritmia_v}}
 					</div>
 
 	        <div class="col-md-3 form-inline ml-auto"> 
 	        	<label class="control-label ml-sm-2 mr-sm-2" for="inlineFormInput">ITT:</label>
-	        	<input type="text" class="form-control ml-sm-2" id="inlineFormInput" name="itt" >
+	        	{{form.itt}}
 	        		     	</div>
 
 	</div> 
@@ -213,4 +167,4 @@
  		color: white;
  	}
  </style>
-{% endblock %}
+{% endblock content %}

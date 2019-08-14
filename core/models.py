@@ -15,11 +15,15 @@ class Pacientes (models.Model):
     numero_afilido=models.IntegerField(verbose_name="N° afiliado")
     sexo=models.CharField(max_length=20,verbose_name="Sexo")
     fecha_nacimiento= models.DateField(verbose_name="Fecha de nacimiento")
+    def __str__(self):
+        return '%s %s' % (self.nombre, self.apellido)
 
 class Meta: #aplicando un metodo para que pase a español en el admin del framework
         verbose_name= "paciente"#aca los paso al español en singular
         verbose_name_plural="paciente"#aca los paso al español en prural
         ordering = ["created"] #con esta funcion puedo ordenar los objetos a medida que los c
+        def __str__(self):
+            return '%s %s' % (self.nombre, self.apellido)
 
 class InstitucionMedica (models.Model):
     nombreInstitucion=models.CharField(max_length=60,verbose_name="Nombre de institucion")
@@ -54,7 +58,7 @@ class Estudio (models.Model):
     perimetroAbdominal=models.IntegerField(verbose_name="Perimetro Abdominal")
     urgencia=models.BooleanField(verbose_name="Urgente",default=False)
     edad=models.IntegerField(verbose_name="Edad")
-    imc=models.IntegerField(verbose_name="Imc")
+    imc=models.FloatField(verbose_name="Imc")
     supCorporal=models.FloatField(verbose_name="Superficie corporal")
     calidadTecnica=models.IntegerField(verbose_name="Calidad tecnica")
     observaciones=models.TextField(verbose_name="Observaciones")

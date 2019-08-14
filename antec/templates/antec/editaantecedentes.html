@@ -1,75 +1,22 @@
-
 {% extends "core/base.html" %}
-
-{%block title%} <title>Antecedentes Patologicos</title>    {%endblock%}
-
-
-{% block content %}
 {% load static %}
-<link rel="stylesheet" href="{% static 'antec/css/estilosAntecedentes.css' %}">
-<script src="{% static 'antec/js/funcionesAntecedentes.js' %}"></script> 
-
-
-</script>
-
-<body>
-																			<hr>
-<!-- *****************************************************FORMULARIO DE BUSQUEDA************************************************* -->
-<form class="form-inline"  method="GET">
-  {% csrf_token %}
-    <input type="text" class="verde" placeholder="Buscar paciente.." name="q" style="" >
-      <button type="submit" class="azul"><i class="fa fa-search"></i></button>
-  </form>
-<!-- *********************************************************FORMULARIO ANTECEDENTE PACIENTE**************************************************** -->
+{% block content %}
 <form method="POST">
 		    {% csrf_token %}
-		    <input type="text" name="paciente_antecedente" id="id_pac_antec" style="display: none;">
-			<div class="table-wrapper-scroll-y my-custom-scrollbar table-responsive-sm">
-  			<table class="table table-dark table-hover table-striped mb-0 " border="1" >
-		    <thead style="background-color: purple;">
-		      <tr>
-		       <th>Paciente</th>
-		          <th>Nombre</th>
-		          <th>Apellido</th>
-		          <th>DNI</th>
-		          <th>Cobertura medica</th>
-		          <th>Numero de afiliado</th>
-		      </tr>
-		    </thead>
-		    <tbody>
-		      {% if eventos %}
-		    {% for k in eventos %}
-		  <tr>
-		      <th><input type="radio" value="{{k.id_pac}}" name="d" id="{{k.fecha_nacimiento}}" ></th>
-		          <td>{{k.nombre}}</td>
-		          <td>{{k.apellido}}</td>
-		          <td>{{k.dni}}</td>
-		          <td>{{k.cobertura_medica}}</td>
-		          <td>{{k.numero_afilido}}</td>		    
-		    </tr>
-		    {% endfor %}
-		    {% else %}
-		    {% endif %}
-		    </tbody>
-		  </table>
-		</div>																								<hr>
-																											<br>
-																										
-<!-- ************************************************************************************COMIENZO DE FIELDSETS***************************************************** -->
-
-	<div class="form-inline">	            
+<div class="form-inline">	            
 		            <fieldset class="form-group form-inline col-md-7 ml-md-3">    	
 							<legend>FCRV</legend>							
 					<div class="form-group form-inline ">
+					{{form.paciente_antecedente}}
 						<div class="col-md-3 form-inline ">
 									      <div class="form-check mr-sm-4">
-									        <input class="form-check-input " type="checkbox" id="" name="fcrv_hta">
+									        {{form.fcrv_hta}}
 									        <label class="form-check-label"> HTA</label>
 									      </div>
 						 </div>
 				
 					<div class="col-md-4 form-inline">			    
-						<input class=" form-control" type="date" id="" name="fecha_fcrv_hta">
+						{{form.fecha_fcrv_hta}}
 							  </div><br> <br><br>
 				
 		           </div> 
@@ -80,13 +27,13 @@
 	
 			<div class="col-md-3 form-inline ">
 						      <div class="form-check mr-sm-4">
-						        <input class="form-check-input " type="checkbox" id="" name="fcrv_dta">
+						        {{form.fcrv_dta}}
 						        <label class="form-check-label" for="autoSizingCheck"> DTA</label>
 						      </div>
 						  </div>
 			
 							<div class="col-md-4 form-inline ">
-								<input class=" form-control" type="date" id="" name="fecha_fcrv_dta">		      						
+								{{form.fecha_fcrv_dta}}		      						
 				 			 </div>			  
 		  
 		</div> 
@@ -97,7 +44,7 @@
 	
 	<div class="col-md-3 form-inline ">
 				      <div class="form-check mr-sm-4">
-				        <input class="form-check-input " type="checkbox" id="" name="anteced_fliar">
+				        {{form.anteced_fliar}}
 				        <label class="form-check-label" for=""> ANTECEDENTES FLIARES</label>
 				      </div>
 				  </div>
@@ -106,7 +53,7 @@
 	
 	<div class="col-md-3 form-inline ">
 				      <div class="form-check mr-sm-4">
-				        <input class="form-check-input " type="checkbox" id="" name="ex_tabaquismo">
+				        {{form.ex_tabaquismo}}
 				        <label class="form-check-label" for=""> EX-TABAQUISMO</label>
 				      </div>
 				  </div>
@@ -121,7 +68,7 @@
 	
 	<div class="col-md-3 form-inline ">
 				      <div class="form-check mr-sm-4">
-				        <input class="form-check-input " type="checkbox" id="" name="dislipemia">
+				        {{form.dislipemia}}
 				        <label class="form-check-label" for="">DISLIPEMIA</label>
 				      </div>
 				  </div>
@@ -130,7 +77,7 @@
 	
 	<div class="col-md-3 form-inline ">
 				      <div class="form-check mr-sm-4">
-				        <input class="form-check-input " type="checkbox" id="" name="sedentarismo">
+				        {{form.sedentarismo}}
 				        <label class="form-check-label" for=""> SEDENTARISMO</label>
 				      </div>
 				  </div>
@@ -147,7 +94,7 @@
 	
 	<div class="col-md-3 form-inline ">
 				      <div class="form-check mr-sm-4">
-				        <input class="form-check-input " type="checkbox" id="" name="estres">
+				        {{form.estres}}
 				        <label class="form-check-label" for="">ESTRÉS</label>
 				      </div>
 				  </div>
@@ -156,7 +103,7 @@
 	
 	<div class="col-md-3 form-inline ">
 				      <div class="form-check mr-sm-4">
-				        <input class="form-check-input " type="checkbox" id="chagas">
+				        {{form.chagas}}
 				        <label class="form-check-label" for=""> CHAGAS</label>
 				      </div>
 				  </div>
@@ -164,7 +111,7 @@
 	
 				  <div class="col-md-3 form-inline ">
 				      <div class="form-check mr-sm-4">
-				        <input class="form-check-input " type="checkbox" id="" name="resincron">
+				        {{form.resincron}}
 				        <label class="form-check-label" for="">RESINCRONIZACIÓN</label>
 				      </div>
 				  </div>
@@ -179,7 +126,7 @@
 	
 	<div class="col-md-3 form-inline ">
 				      <div class="form-check mr-sm-4">
-				        <input class="form-check-input " type="checkbox" id="" name="tabaquismo">
+				        {{form.tabaquismo}}
 				        <label class="form-check-label" for="">TABAQUISMOS</label>
 				      </div>
 				  </div>
@@ -188,7 +135,7 @@
 	
 	<div class="col-md-3 form-inline ">
 				      <div class="form-check mr-sm-4">
-				        <input class="form-check-input " type="checkbox" id="" name="marcapasos">
+				        {{form.marcapasos}}
 				        <label class="form-check-label" for=""> MARCAPASOS</label>
 				      </div>
 				  </div>
@@ -196,7 +143,7 @@
 	
 				  <div class="col-md-3 form-inline ">
 				      <div class="form-check mr-sm-4">
-				        <input class="form-check-input " type="checkbox" id="" name="cdi">
+				        {{form.cdi}}
 				        <label class="form-check-label" for="">CDI</label>
 				      </div>
 				  </div>		  
@@ -221,7 +168,7 @@
 								  </div>
 		
 						<div class="col-md-4 form-inline  ">
-						<input class=" form-control" type="date" id="" name="fecha_crm_hta">			      
+						{{form.fecha_crm_hta}}			      
 					
 					
 								  </div>
@@ -235,7 +182,7 @@
 	
 	<div class="col-md-3 form-inline ">
 				      <div class="form-check mr-sm-4">
-				        <input class="form-check-input " type="checkbox" id="" name="pm">
+				        {{form.pm}}
 				        <label class="form-check-label" for="">PM</label>
 				      </div>
 				  </div>
@@ -244,7 +191,7 @@
 	
 	<div class="col-md-3 form-inline ">
 				      <div class="form-check mr-sm-4">
-				        <input class="form-check-input " type="checkbox" id="" name="pr">
+				        {{form.pr}}
 				        <label class="form-check-label" for=""> PR</label>
 				      </div>
 				  </div>
@@ -252,7 +199,7 @@
 	
 				  <div class="col-md-3 form-inline ">
 				      <div class="form-check mr-sm-4">
-				        <input class="form-check-input " type="checkbox" id="" name="pv">
+				        {{form.pv}}
 				        <label class="form-check-label" for="">PV</label>
 				      </div>
 				  </div>
@@ -265,7 +212,7 @@
 	
 	<div class="col-md-3 form-inline ">
 				      <div class="form-check mr-sm-4">
-				        <input class="form-check-input " type="checkbox" id="" name="pm_da">
+				        {{form.pm_da}}
 				        <label class="form-check-label" for="">DA</label>
 				      </div>
 				  </div>
@@ -274,7 +221,7 @@
 	
 	<div class="col-md-3 form-inline ">
 				      <div class="form-check mr-sm-4">
-				        <input class="form-check-input " type="checkbox" id="" name="pr_dg">
+				        {{form.pr_dg}}
 				        <label class="form-check-label" for=""> DG</label>
 				      </div>
 				  </div>
@@ -282,7 +229,7 @@
 	
 				  <div class="col-md-3 form-inline ">
 				      <div class="form-check mr-sm-4">
-				        <input class="form-check-input " type="checkbox" id="" name="pv_da">
+				        {{form.pv_da}}
 				        <label class="form-check-label" for="">DA</label>
 				      </div>
 				  </div>
@@ -295,7 +242,7 @@
 	
 	<div class="col-md-3 form-inline ">
 				      <div class="form-check mr-sm-4">
-				        <input class="form-check-input " type="checkbox" id="" name="pm_dg">
+				        {{form.pm_dg}}
 				        <label class="form-check-label" for="">DG</label>
 				      </div>
 				  </div>
@@ -304,7 +251,7 @@
 	
 	<div class="col-md-3 form-inline ">
 				      <div class="form-check mr-sm-4">
-				        <input class="form-check-input " type="checkbox" id="" name="pr_cx">
+				        {{form.pr_cx}}
 				        <label class="form-check-label" for="">Cx</label>
 				      </div>
 				  </div>
@@ -312,7 +259,7 @@
 	
 				  <div class="col-md-3 form-inline ">
 				      <div class="form-check mr-sm-4">
-				        <input class="form-check-input " type="checkbox" id="" name="pv_dg">
+				        {{fomr.pv_dg}}
 				        <label class="form-check-label" for="">DG</label>
 				      </div>
 				  </div>
@@ -326,7 +273,7 @@
 	
 	<div class="col-md-3 form-inline ">
 				      <div class="form-check mr-sm-4">
-				        <input class="form-check-input " type="checkbox" id="" name="pm_cx">
+				        {{form.pm_cx}}
 				        <label class="form-check-label" for="">Cx</label>
 				      </div>
 				  </div>
@@ -343,7 +290,7 @@
 	
 				  <div class="col-md-3 form-inline  ">
 				      <div class="form-check mr-sm-4">
-				        <input class="form-check-input " type="checkbox" id="" name="pv_cx">
+				        {{form.pv_cx}}
 				        <label class="form-check-label" for="">Cx</label>
 				      </div>
 				  </div>
@@ -365,13 +312,13 @@
 	
 	<div class="col-md-3 form-inline ">
 				      <div class="form-check mr-sm-4">
-				        <input class="form-check-input " type="checkbox" id="" name="infarto">
+				        {{form.infarto}}
 				        <label class="form-check-label" for="">INFARTO</label>
 				      </div>
 				  </div>
 					
 		<div class="col-md-4 form-inline ">
-			<input class=" form-control" type="date" id="" name="fecha_infarto_reciente">		      
+			{{form.fecha_infarto_reciente}}		      
 				  </div>
 		  
 	</div> 
@@ -380,7 +327,7 @@
 	
 	<div class="col-md-3 form-inline ">
 				      <div class="form-check mr-sm-4">
-				        <input class="form-check-input " type="checkbox" id="" name="atc1">
+				       {{form.atc1}}
 				        <label class="form-check-label" for="">ATC</label>
 				      </div>
 				  </div>
@@ -389,7 +336,7 @@
 	
 	<div class="col-md-3 form-inline ">
 				      <div class="form-check mr-sm-4">
-				        <input class="form-check-input " type="checkbox" id="" name="atc2">
+				        {{form.atc2}}
 				        <label class="form-check-label" for=""> ATC</label>
 				      </div>
 				  </div>
@@ -397,7 +344,7 @@
 	
 				  <div class="col-md-3 form-inline ">
 				      <div class="form-check mr-sm-4">
-				        <input class="form-check-input " type="checkbox" id="" name="atc3">
+				        {{form.atc3}}
 				        <label class="form-check-label" for="">ATC</label>
 				      </div>
 				  </div>
@@ -410,7 +357,7 @@
 	
 	<div class="col-md-3 form-inline ">
 				      <div class="form-check mr-sm-4">
-				        <input class="form-check-input " type="checkbox" id="" name="atc1_da">
+				        {{form.atc1_da}}
 				        <label class="form-check-label" for="">DA</label>
 				      </div>
 				  </div>
@@ -419,7 +366,7 @@
 	
 	<div class="col-md-3 form-inline ">
 				      <div class="form-check mr-sm-4">
-				        <input class="form-check-input " type="checkbox" id="" name="atc2_da">
+				        {{form.atc2_da}}
 				        <label class="form-check-label" for=""> DA</label>
 				      </div>
 				  </div>
@@ -427,7 +374,7 @@
 	
 				  <div class="col-md-3 form-inline ">
 				      <div class="form-check mr-sm-4">
-				        <input class="form-check-input " type="checkbox" id="" name="atc3_da">
+				        {{form.atc3_da}}
 				        <label class="form-check-label" for="">DA</label>
 				      </div>
 				  </div>
@@ -440,7 +387,7 @@
 	
 	<div class="col-md-3 form-inline ">
 				      <div class="form-check mr-sm-4">
-				        <input class="form-check-input " type="checkbox" id="" name="atc1_dg">
+				        {{form.atc1_dg}}
 				        <label class="form-check-label" for="">DG</label>
 				      </div>
 				  </div>
@@ -449,7 +396,7 @@
 	
 	<div class="col-md-3 form-inline ">
 				      <div class="form-check mr-sm-4">
-				        <input class="form-check-input " type="checkbox" id="" name="atc2_dg">
+				        {{form.atc2_dg}}
 				        <label class="form-check-label" for="">DG</label>
 				      </div>
 				  </div>
@@ -457,7 +404,7 @@
 	
 				  <div class="col-md-3 form-inline ">
 				      <div class="form-check mr-sm-4">
-				        <input class="form-check-input " type="checkbox" id="" name="atc3_dg">
+				        {{form.atc3_dg}}
 				        <label class="form-check-label" for="">DG</label>
 				      </div>
 				  </div>
@@ -471,7 +418,7 @@
 	
 	<div class="col-md-3 form-inline ">
 				      <div class="form-check mr-sm-4">
-				        <input class="form-check-input " type="checkbox" id="" name="atc1_cx">
+				        {{form.atc1_cx}}
 				        <label class="form-check-label" for="">Cx</label>
 				      </div>
 				  </div>
@@ -480,7 +427,7 @@
 	
 	<div class="col-md-3 form-inline ">
 				      <div class="form-check mr-sm-4">
-				        <input class="form-check-input " type="checkbox" id="" name="atc2_cx">
+				        {{form.atc2_cx}}
 				        <label class="form-check-label" for="">Cx</label>
 				      </div>
 				  </div>
@@ -488,7 +435,7 @@
 	
 				  <div class="col-md-3 form-inline  ">
 				      <div class="form-check mr-sm-4">
-				        <input class="form-check-input " type="checkbox" id="" name="atc3_cx">
+				        {{form.atc3_cx}}
 				        <label class="form-check-label" for="">Cx</label>
 				      </div>
 				  </div>
@@ -501,7 +448,7 @@
 	
 	<div class="col-md-3 form-inline ">
 				      <div class="form-check mr-sm-4">
-				        <input class="form-check-input " type="checkbox" id="" name="atc1_cd">
+				        {{form.atc1_cd}}
 				        <label class="form-check-label" for="">CD</label>
 				      </div>
 				  </div>
@@ -510,7 +457,7 @@
 	
 	<div class="col-md-3 form-inline ">
 				      <div class="form-check mr-sm-4">
-				        <input class="form-check-input " type="checkbox" id="" name="atc2_cd">
+				        {{form.atc2_cd}}
 				        <label class="form-check-label" for="">CD</label>
 				      </div>
 				  </div>
@@ -518,7 +465,7 @@
 	
 				  <div class="col-md-3 form-inline  ">
 				      <div class="form-check mr-sm-4">
-				        <input class="form-check-input " type="checkbox" id="" name="atc3_cd">
+				        {{form.atc3_cd}}
 				        <label class="form-check-label" for="">CD</label>
 				      </div>
 				  </div>
@@ -531,7 +478,7 @@
 	
 	<div class="col-md-3 form-inline ">
 				      <div class="form-check mr-sm-4">
-				        <input class="form-check-input " type="checkbox" id="" name="atc1_stent_bms">
+				        {{form.atc1_stent_bms}}
 				        <label class="form-check-label" for="">Stent BMS</label>
 				      </div>
 				  </div>
@@ -540,7 +487,7 @@
 	
 	<div class="col-md-3 form-inline ">
 				      <div class="form-check mr-sm-4">
-				        <input class="form-check-input " type="checkbox" id="" name="atc2_stent_bms">
+				        {{form.atc2_stent_bms}}
 				        <label class="form-check-label" for="">Stent BMS</label>
 				      </div>
 				  </div>
@@ -548,7 +495,7 @@
 	
 				  <div class="col-md-3 form-inline  ">
 				      <div class="form-check mr-sm-4">
-				        <input class="form-check-input " type="checkbox" id="" name="atc3_stent_bms">
+				        {{form.atc3_stent_bms}}
 				        <label class="form-check-label" for="">Stent BMS</label>
 				      </div>
 				  </div>
@@ -561,7 +508,7 @@
 	
 	<div class="col-md-3 form-inline ">
 				      <div class="form-check mr-sm-4">
-				        <input class="form-check-input " type="checkbox" id="autoSizingCheck" name="atc1_stent_des">
+				        {{form.atc1_stent_des}}
 				        <label class="form-check-label" for="autoSizingCheck">Stent DES</label>
 				      </div>
 				  </div>
@@ -570,7 +517,7 @@
 	
 	<div class="col-md-3 form-inline ">
 				      <div class="form-check mr-sm-4">
-				        <input class="form-check-input " type="checkbox" id="autoSizingCheck" name="atc2_stent_des">
+				        {{form.atc2_stent_des}}
 				        <label class="form-check-label" for="autoSizingCheck">Stent DES</label>
 				      </div>
 				  </div>
@@ -578,7 +525,7 @@
 	
 				  <div class="col-md-3 form-inline  ">
 				      <div class="form-check mr-sm-4">
-				        <input class="form-check-input " type="checkbox" id="autoSizingCheck" name="atc3_stent_des">
+				        {{form.atc3_stent_des}}
 				        <label class="form-check-label" for="autoSizingCheck">Stent DES</label>
 				      </div>
 				  </div>
@@ -600,7 +547,7 @@
 								<legend>OTROS</legend>		       
 								 <div class="form-group shadow-textarea">
 						  
-						 			 <textarea class="form-control z-depth-1  col" id="exampleFormControlTextarea6" rows="6"  placeholder="Escribe aquí..." name="otros_antecedentes"></textarea>
+						 			 {{form.otros_antecedentes}}
 									</div>								
 							</fieldset>				
 			
@@ -615,5 +562,5 @@
 		                </form>
 
 </body>
-</html>
-{% endblock %}
+
+{% endblock content %}
