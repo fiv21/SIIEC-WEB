@@ -1,0 +1,9 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    <h3>¿Desea eliminar el estudio del paciente {{object.paciente_mpi}}?</h3>
+    <button class="btn btn-danger" type="submit">Si, eliminar</button>
+    <a class="btn btn-default" href="{% url 'listampi' %}"> Cancelar</a>
+{% endblock content %}

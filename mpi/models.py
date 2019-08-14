@@ -61,3 +61,4 @@ class Mpi(models.Model):
     ssr=models.FloatField(null=True)
     sss=models.FloatField(null=True)
     ssd=models.FloatField(null=True)
+    cargarchivo=models.FileField(upload_to="misCargas",max_length=150,null=True,blank=True)
