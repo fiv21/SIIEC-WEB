@@ -15,7 +15,7 @@
 <br><br>
 <body>
 <div class="container">
-    
+    <a class="btn btn-info" href="{% url 'pacienteslistado' %}" >Listado de pacientes</a>
     <form  method="POST">
        {% csrf_token %}
       <div class="form-group col-md-5">

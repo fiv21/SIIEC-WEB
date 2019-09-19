@@ -19,7 +19,9 @@
   {% csrf_token %}
     <input type="text" class="verde" placeholder="Buscar paciente.." name="q" style="" >
       <button type="submit" class="azul"><i class="fa fa-search"></i></button>
+	  
   </form>
+  <a class="btn btn-info" href="{% url 'listaantecedentes' %}" >Listado de antecedentes</a>
 <!-- *********************************************************FORMULARIO ANTECEDENTE PACIENTE**************************************************** -->
 <form method="POST">
 		    {% csrf_token %}

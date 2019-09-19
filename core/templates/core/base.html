@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  {%block title%} <title>Hdsadaome</title>    {%endblock%}
+  {%block title%} <title>Menu Principal</title>    {%endblock%}
 {% load static %}
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -11,27 +11,68 @@
   <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- PARA LA LUPA --> 
   <link rel="stylesheet" href="{% static 'core/css/estilosBase.css' %}">
-  <script src="{% static 'core/js/funcionesBase.js' %}"></script>
+  <!-- <script src="{% static 'core/js/funcionesBase.js' %}"></script> -->
 
 
-<style>
+<style>/*
    body::after {
              content: "";
-             background: url('{% static 'core/img/bg-01.jpg' %}') no-repeat;
+             background: url('{% static 'core/img/bg-01.jpg' %}') ;
              /*opacity: 0.4;*/
-         background-color: rgba(0,0,0,0.8);
+       /*  background-color: rgba(0,0,0,0.8);
            filter:brightness(0.4);/*opacidad*/
-             top: 0;
+      /*       top: 0;
              left: 0;
              bottom: 0;
              right: 0;
-             position: fixed;
+             position:fixed;
              z-index: -1; 
 
            }  
 
+
+           */
+
+body::after{
+  content: "";
+  background: url('{% static 'core/img/bg-01.jpg' %}')  ;
+ background-attachment: fixed;
+  background-color: rgba(0,0,0,0.8);
+  filter:brightness(0.4);
+     top: 0;
+             left: 0;
+             bottom: 0;
+             right: 0;
+             position:fixed;
+             z-index: -1; 
+}
+
 </style>
 
+<script>
+ 
+
+      $(function () {
+  $(document).scroll(function () { /* detecta si scroleamos */
+    var $nav = $(".navv");//agrego color blango al nav
+    var $a = $(".a");// agrego color negro a las letras
+    $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
+    $a.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
+  /*
+$h=$(".a");
+ $(".a").hover(function(){
+   $(this).toggleClass("scrolled");
+    // $(this).css("color", "white");
+ });
+*/
+  /* 
+ ver´por que no puedo cabiar las letras de hover 
+*/
+// alert("sda")
+  });
+});
+
+</script>
 </head>
 
 <body>{%block headers%}  
@@ -51,7 +92,7 @@
             <a class="nav-link a" href="{% url 'pacienteform' %}" style=" color: white ;">Cargar Pacientes</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link a" href="{% url 'mpi' %}" style=" color: white ;">MPI</a>
+            <a class="nav-link a" href="{% url 'mpi' %}" style=" color: white ;">Camara Gama</a>
           </li>
           <li class="nav-item">
             <a class="nav-link a" href="{% url 'ergo' %}" style=" color: white ">Ergometria</a>

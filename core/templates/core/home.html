@@ -6,17 +6,119 @@
 <!-- {% block background %}{% load static %}{% static 'core/img/core.jpg' %}{% endblock %} -->
 
 
-
+{% load static %}
 
 
 {% block content %}
+<style>
+	
+	.box:hover {
+  box-shadow: 0 0 20px rgba(33,33,33,.2);
 
-<!-- <body style="background-color: blue;"> -->
-	<h1>	Hey Guys</h1>
-	<!-- <div style="height: 900px; background-color: red; width: 100px;">  -->
-		<h1 >Bienvenido: </h1></div>
+border-radius: 20px;
+/*width:225%;*/
+/*-webkit-transform: scale(0.5);*/
+transform: scale(1.1)
+/*background-color: red;*/
+}
+.card{
+	border-radius: 20px;
+}/*
+.ja:hover{ 
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5)
+}*/
+</style>
+
+<body  >
+	<br><br>
+	<!-- background-color:rgba(255, 250, 249  , 0.9) -->
+<div class="container-fluid" style="position: relative;padding-bottom: 80px; left: 0px;" >
+	<br><br><br><br>
+	<div class="row">
+	  <div class="col-sm-3">
+	    <div class="card box " >
+	    <img class="card-img box container" src="{% static 'core/img/c5trans.png' %}" alt="Card image" style="height: 100px; width: 150px;">	
+	      <div class="card-body card-img-overlay " style="padding: 30px;">
+	        <h5 class="card-title  text-center" style="background-color: rgba(1, 130, 220, 0.5);border-radius: 30px; "><a href="{% url 'pacienteform' %}"  style="text-decoration: none; color: black;"><span>CARGAR PACIENTE</span></a></h5>
+	      </div>
+	    </div>
+	  </div>
+	 <div class="col-sm-3">
+	    <div class="card box " >
+	    <img class="card-img box container" src="{% static 'core/img/c5trans.png' %}" alt="Card image" style="height: 100px; width: 150px;">	
+	      <div class="card-body card-img-overlay" style="padding-top: 30px;">
+	        <h5 class="card-title text-center"><a href="{% url 'form' %}" style="text-decoration: none; color: black;">ESTUDIOS</a></h5>
+	      </div>
+	    </div>
+	  </div>
+	<div class="col-sm-3">
+	    <div class="card box " >
+	    <img class="card-img box container" src="{% static 'core/img/c5trans.png' %}" alt="Card image" style="height: 100px; width: 150px;">	
+	      <div class="card-body card-img-overlay" style="padding-top: 30px;">
+	        <h5 class="card-title text-center"><a href="{% url 'ergo' %}" style="text-decoration: none; color: black;">ERGOMETRÍA</a></h5>
+	      </div>
+	    </div>
+	  </div>
+	
+	</div>
+	
+	<br>
+	<div class="row">
+	<div class="col-sm-3">
+	    <div class="card box " >
+	    <img class="card-img box container" src="{% static 'core/img/c5trans.png' %}" alt="Card image" style="height: 100px; width: 150px;">	
+	      <div class="card-body card-img-overlay" style="padding-top: 30px;">
+	        <h5 class="card-title text-center"><a href="{% url 'ventricular' %}" style="text-decoration: none; color: black;">FUNCIÓN VENTRICULAR</a></h5>
+	      </div>
+	    </div>
+	  </div>
+	 <div class="col-sm-3">
+	    <div class="card box " >
+	    <img class="card-img box container" src="{% static 'core/img/c5trans.png' %}" alt="Card image" style="height: 100px; width: 150px;">	
+	      <div class="card-body card-img-overlay" style="padding-top: 30px;">
+	        <h5 class="card-title text-center"><a href="{% url 'mpi' %}" style="text-decoration: none; color: black;">CÁMARA GAMA</a></h5>
+	      </div>
+	    </div>
+	  </div>
+	
+	<div class="col-sm-3">
+	    <div class="card box " >
+	    <img class="card-img box container" src="{% static 'core/img/c5trans.png' %}" alt="Card image" style="height: 100px; width: 150px;">	
+	      <div class="card-body card-img-overlay" style="padding-top: 30px;">
+	        <h5 class="card-title text-center"><a href="{% url 'antecedentes' %}" style="text-decoration: none; color: black;">ANTECEDENTES PATOLÓGICOS</a></h5>
+	      </div>
+	    </div>
+	  </div>
+	
+	</div>
+	
+	<br>
+	<div class="row">
+	<div class="col-sm-3">
+	    <div class="card box " >
+	    <img class="card-img box container" src="{% static 'core/img/c5trans.png' %}" alt="Card image" style="height: 100px; width: 150px;">	
+	      <div class="card-body card-img-overlay" style="padding-top: 30px;">
+	        <h5 class="card-title text-center"><a href="{% url 'preinforme' %}" style="text-decoration: none; color: black;">PRE-INFORME</a></h5>
+	      </div>
+	    </div>
+	  </div>
+	 <div class="col-sm-3">
+	    <div class="card box " >
+	    <img class="card-img box container" src="{% static 'core/img/c5trans.png' %}" alt="Card image" style="height: 100px; width: 150px;">	
+	      <div class="card-body card-img-overlay" style="padding-top: 30px;">
+	        <h5 class="card-title text-center"><a href="" style="text-decoration: none; color: black;">EXPORTAR BASE DE DATOS</a></h5>
+	      </div>
+	    </div>
+	  </div>
+	
+	
+	</div>
+</div>
+<!-- <div style="height: 900px; background-color: red; width: 100px;"> <h1 >Soy el base</h1></div> -->
 </body>
-<!-- <div style="width: 50px; height: 50px; background-color: blue;"></div> -->
+
+
 
 {% endblock %}
 

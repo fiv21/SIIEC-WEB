@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	{% extends "core/base.html" %} <!-- extiendo de base.htm  -->
+	{%block title%}  <title>Pre-Informe</title>  {%endblock%}
+
+	{% block content %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet"> 
+<style type="text/css">
+
+		fieldset {
+					border: 1px solid #ddd;
+				}
+
+		legend {
+					background-color: #fff;
+					border: 1px solid #ddd;
+					border-radius: 4px;
+					color: var(--purple);
+					font-size: 17px;
+					font-weight: bold;
+					padding: 3px 5px 3px 7px;
+					width: auto;
+				}
+
+        .navbar .dropdown-toggle, .navbar .dropdown-menu a {
+    cursor: pointer;
+}
+
+.navbar .dropdown-item.active, .navbar .dropdown-item:active {
+    color: inherit;
+    text-decoration: none;
+    background-color: inherit;
+}
+
+.navbar .dropdown-item:focus, .navbar .dropdown-item:hover {
+    color: #16181b;
+    text-decoration: none;
+    background-color: #f8f9fa;
+}
+
+@media (min-width: 767px) {
+    .navbar .dropdown-toggle:not(.nav-link)::after {
+        display: inline-block;
+        width: 0;
+        height: 0;
+        margin-left: .5em;
+        vertical-align: 0;
+        border-bottom: .3em solid transparent;
+        border-top: .3em solid transparent;
+        border-left: .3em solid;
+    }
+}
+</style>
+
+</head>
+
+<body>
+
+  <!--<div class="navbar navbar-expand-md navbar-dark bg-dark mb-4" role="navigation">
+    <a class="navbar-brand" href="#">Bootstrap 4 NavBar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+        <form class="form-inline mt-2 mt-md-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+</div> -->
+<form  method="POST">
+	{% csrf_token %}
+
+<fieldset class=" form-group form-inline col-md-7 ml-md-5 mt-md-5 mb-md-5 " style="font-family: 'Roboto Condensed', sans-serif;">
+
+<legend>Datos Personales</legend>		
+
+<div class=" container mb-md-2 mt-md-2 mr-md-5 ml-md-5">
+
+		<div class="row ml-md-2 mb-md-4 mt-md-2 mr-md-2">
+					<div class="row col-md-4 mt-md-2 ml-md-2 ">
+							<label class=" control-label mr-md-5 ">Estudio N°: </label>
+							<input type="text" class="form-control mt-md-2 col-md-9" id="inlineFormInput" name="fc_esfuerzo">
+					</div>	
+					<div class="row col-md-3 mt-md-2 " >
+							<label class=" control-label mr-md-5">Fecha: </label>
+							<input type="text" class="form-control mt-md-2 col-md-9" id="inlineFormInput" name="fc_esfuerzo">
+					</div>	
+					<div class="row col-md-5 mt-md-2" >
+							<label class=" control-label mr-md-5">Apellido y Nombre: </label>
+							<input type="text" class="form-control mt-md-2 col-md-9" id="inlineFormInput" name="fc_esfuerzo">
+					</div>								
+		</div>
+
+		<div class="row ml-md-2 mb-md-4 mt-md-2 mr-md-2">
+					<div class="row col-md-4 mt-md-2 ml-md-2 ">
+							<label class=" control-label mr-md-5 ">Fecha de Nacimiento: </label>
+							<input type="text" class="form-control mt-md-2 col-md-9" id="inlineFormInput" name="fc_esfuerzo">
+					</div>	
+					<div class="row col-md-4 mt-md-2" >
+							<label class=" control-label mr-md-5">DNI: </label>
+							<input type="text" class="form-control mt-md-2 col-md-9" id="inlineFormInput" name="fc_esfuerzo">
+					</div>	
+					<div class="row col-md-3 mt-md-2">
+							<label class=" control-label mr-md-5">Sexo: </label>
+							<input type="text" class="form-control mt-md-2 col-md-9" id="inlineFormInput" name="fc_esfuerzo">
+					</div>									
+		</div>	
+		
+		<div class="row ml-md-2 mb-md-4 mt-md-2 mr-md-2">
+				<div class="row col-md-4 mt-md-2 ml-md-2 ">
+						<label class=" control-label mr-md-5 ">Cobertura Médica: </label>
+						<input type="text" class="form-control mt-md-2 col-md-9" id="inlineFormInput" name="fc_esfuerzo">
+				</div>	
+				<div class="row col-md-4 mt-md-2" >
+						<label class=" control-label mr-md-5">Referido por: </label>
+						<input type="text" class="form-control mt-md-2 col-md-9" id="inlineFormInput" name="fc_esfuerzo">
+				</div>	
+				<div class="row col-md-4 mt-md-2">
+						<label class=" control-label mr-md-5">Peso (Kg.): </label>
+						<input type="text" class="form-control mt-md-2 col-md-9" id="inlineFormInput" name="fc_esfuerzo">
+				</div>									
+		</div>
+
+		<div class="row ml-md-2 mb-md-4 mt-md-2 mr-md-2">
+				<div class="row col-md-4 mt-md-2 ml-md-2 ">
+						<label class=" control-label mr-md-5 ">Talla (cm): </label>
+						<input type="text" class="form-control mt-md-2 col-md-9" id="inlineFormInput" name="fc_esfuerzo">
+				</div>	
+				<div class="row col-md-4 mt-md-2" >
+						<label class=" control-label mr-md-5">Edad (Años): </label>
+						<input type="text" class="form-control mt-md-2 col-md-9" id="inlineFormInput" name="fc_esfuerzo">
+				</div>	
+				<div class="row col-md-3 mt-md-2">
+						<label class=" control-label mr-md-5">IMC: </label>
+						<input type="text" class="form-control mt-md-2 col-md-9" id="inlineFormInput" name="fc_esfuerzo">
+				</div>									
+		</div>
+
+		<div class="row ml-md-2 mb-md-4 mt-md-2 mr-md-2">
+				<div class="row col-md-3 mt-md-2 ml-md-2 ">
+						<label class=" control-label mr-md-5 ">Sup. Corporal: </label>
+						<input type="text" class="form-control mt-md-2 col-md-9" id="inlineFormInput" name="fc_esfuerzo">
+				</div>	
+				<div class="row col-md-4 mt-md-2" >
+						<label class=" control-label mr-md-5">Indicación de Estudio: </label>
+						<input type="text" class="form-control mt-md-2 col-md-9" id="inlineFormInput" name="fc_esfuerzo">
+				</div>	
+				<div class="row col-md-5 mt-md-2">
+						<label class=" control-label mr-md-5">Calidad Técnica: </label>
+						<input type="text" class="form-control mt-md-2 col-md-9" id="inlineFormInput" name="fc_esfuerzo">
+				</div>									
+		</div>
+
+		<div class="row ml-md-2 mb-md-4 mt-md-2 mr-md-2">
+				<div class="row col-md-4 mt-md-2 ml-md-2 ">
+						<label class=" control-label mr-md-5 ">Decubito: </label>
+						<input type="text" class="form-control mt-md-2 col-md-9" id="inlineFormInput" name="fc_esfuerzo">
+				</div>	
+				<div class="row col-md-4 mt-md-2" >
+						<label class=" control-label mr-md-5">Perimetro Abdominal (cm): </label>
+						<input type="text" class="form-control mt-md-2 col-md-9" id="inlineFormInput" name="fc_esfuerzo">
+				</div>										
+		</div>
+
+</div>					
+
+</fieldset>	
+
+<fieldset class=" form-group form-inline col-md-7 ml-md-5 mr-md-5 mt-md-5 mb-md-5 " style="font-family: 'Roboto Condensed', sans-serif;">    	
+		<legend>Antecedentes Patológicos</legend>							
+			<div class=" container mb-md-2 mt-md-2 mr-md-5 ml-md-5">
+		
+						<div class="row ml-md-2 mb-md-4 mt-md-2 mr-md-2">
+							<div class="row col-md-4 mt-md-2 ml-md-2 ">
+									<label class=" control-label mr-md-5 ">HTA: </label>
+									<input type="text" class="form-control mt-md-2 col-md-9" id="inlineFormInput" name="fc_esfuerzo">
+							</div>	
+							<div class="row col-md-4 mt-md-2 " >
+									<label class=" control-label mr-md-5">DBT: </label>
+									<input type="text" class="form-control mt-md-2 col-md-9" id="inlineFormInput" name="fc_esfuerzo">
+							</div>	
+							<div class="row col-md-4 mt-md-2" >
+									<label class=" control-label mr-md-5">FCRV: </label>
+									<input type="text" class="form-control mt-md-2 col-md-9" id="inlineFormInput" name="fc_esfuerzo">
+							</div>								
+						</div>
+		
+						<div class="row ml-md-2 mb-md-4 mt-md-2 mr-md-2">
+							<div class="row col-md-4 mt-md-2 ml-md-2 ">
+									<label class=" control-label mr-md-5 ">Infarto: </label>
+									<input type="text" class="form-control mt-md-2 col-md-9" id="inlineFormInput" name="fc_esfuerzo">
+							</div>	
+							<div class="row col-md-4 mt-md-2" >
+									<label class=" control-label mr-md-5">ATC: </label>
+									<input type="text" class="form-control mt-md-2 col-md-9" id="inlineFormInput" name="fc_esfuerzo">
+							</div>	
+							<div class="row col-md-4 mt-md-2">
+									<label class=" control-label mr-md-5">CRM: </label>
+									<input type="text" class="form-control mt-md-2 col-md-9" id="inlineFormInput" name="fc_esfuerzo">
+							</div>									
+						</div>
+
+						<div class="row ml-md-2 mb-md-4 mt-md-2 mr-md-2">
+								<div class="row col-md-4 mt-md-2 ml-md-2 ">
+										<label class=" control-label mr-md-5 ">CRM (PM,PR,PV): </label>
+										<input type="text" class="form-control mt-md-2 col-md-9" id="inlineFormInput" name="fc_esfuerzo">
+								</div>	
+								<div class="row col-md-5 mt-md-2" >
+										<label class=" control-label mr-md-5">Otros Antecedentes: </label>
+										<input type="text" class="form-control mt-md-2 col-md-9" id="inlineFormInput" name="fc_esfuerzo">
+								</div>	
+														
+						</div>
+	
+			</div>					
+</fieldset>	
+
+<fieldset class=" form-group form-inline col-md-7 ml-md-5 mr-md-5 mt-md-5 mb-md-5 " style="font-family: 'Roboto Condensed', sans-serif;">    	
+		<legend>Función Cardíaca</legend>							
+			<div class=" container mb-md-2 mt-md-2 mr-md-5 ml-md-5">
+				<h4 class="ml-md-4 mt-md-3 mb-md-3">Apremio</h4>
+		
+						<div class="row ml-md-2 mb-md-2 mt-md-2 mr-md-2">
+							<div class="row col-md-4 mt-md-2 ml-md-2 ">
+									<label class=" control-label mr-md-5 ">Fracción de ..: </label>
+									<input type="text" class="form-control mt-md-2 col-md-9" id="inlineFormInput" name="fc_esfuerzo">
+							</div>	
+							<div class="row col-md-4 mt-md-2 " >
+									<label class=" control-label mr-md-5">Vol. Relativo: </label>
+									<input type="text" class="form-control mt-md-2 col-md-9" id="inlineFormInput" name="fc_esfuerzo">
+							</div>	
+							<div class="row col-md-4 mt-md-2" >
+									<label class=" control-label mr-md-5">VFDVI: </label>
+									<input type="text" class="form-control mt-md-2 col-md-9" id="inlineFormInput" name="fc_esfuerzo">
+							</div>								
+						</div>
+		
+						<div class="row ml-md-2 mb-md-4 mt-md-2 mr-md-2">
+							<div class="row col-md-4 mt-md-2 ml-md-2 ">
+									<label class=" control-label mr-md-5 ">VFDVI/m2: </label>
+									<input type="text" class="form-control mt-md-2 col-md-9" id="inlineFormInput" name="fc_esfuerzo">
+							</div>	
+							<div class="row col-md-4 mt-md-2" >
+									<label class=" control-label mr-md-5">FVSVI: </label>
+									<input type="text" class="form-control mt-md-2 col-md-9" id="inlineFormInput" name="fc_esfuerzo">
+							</div>	
+							<div class="row col-md-4 mt-md-2">
+									<label class=" control-label mr-md-5">FVSVI/m2: </label>
+									<input type="text" class="form-control mt-md-2 col-md-9" id="inlineFormInput" name="fc_esfuerzo">
+							</div>									
+						</div>
+					
+							
+						
+			</div>	
+			<div class=" container mb-md-2 mt-md-2 mr-md-5 ml-md-5">
+					<h4 class="ml-md-4 mt-md-3 mb-md-3">Reposo</h4>
+			
+							<div class="row ml-md-2 mb-md-2 mt-md-2 mr-md-2">
+								<div class="row col-md-4 mt-md-2 ml-md-2 ">
+										<label class=" control-label mr-md-5 ">Fracción de ..: </label>
+										<input type="text" class="form-control mt-md-2 col-md-9" id="inlineFormInput" name="fc_esfuerzo">
+								</div>	
+								<div class="row col-md-4 mt-md-2 " >
+										<label class=" control-label mr-md-5">Vol. Relativo: </label>
+										<input type="text" class="form-control mt-md-2 col-md-9" id="inlineFormInput" name="fc_esfuerzo">
+								</div>	
+								<div class="row col-md-3 mt-md-2" >
+										<label class=" control-label mr-md-5">VFDVI: </label>
+										<input type="text" class="form-control mt-md-2 col-md-9" id="inlineFormInput" name="fc_esfuerzo">
+								</div>		
+								<div class="row col-md-2 mt-md-2" >
+										<label class=" control-label mr-md-5">TID: </label>
+										<input type="text" class="form-control mt-md-2 col-md-9" id="inlineFormInput" name="fc_esfuerzo">
+								</div>						
+							</div>
+			
+							<div class="row ml-md-2 mb-md-4 mt-md-2 mr-md-2">
+								<div class="row col-md-4 mt-md-2 ml-md-2 ">
+										<label class=" control-label mr-md-5 ">VFDVI/m2: </label>
+										<input type="text" class="form-control mt-md-2 col-md-9" id="inlineFormInput" name="fc_esfuerzo">
+								</div>	
+								<div class="row col-md-4 mt-md-2" >
+										<label class=" control-label mr-md-5">FVSVI: </label>
+										<input type="text" class="form-control mt-md-2 col-md-9" id="inlineFormInput" name="fc_esfuerzo">
+								</div>	
+								<div class="row col-md-4 mt-md-2">
+										<label class=" control-label mr-md-5">FVSVI/m2: </label>
+										<input type="text" class="form-control mt-md-2 col-md-9" id="inlineFormInput" name="fc_esfuerzo">
+								</div>									
+							</div>
+						
+								
+							
+			</div>				
+</fieldset>	
+
+<fieldset class=" form-group form-inline col-md-7 ml-md-5 mt-md-5 mb-md-5 " style="font-family: 'Roboto Condensed', sans-serif;">
+
+		<legend>Ergometría</legend>		
+		
+		<div class=" container mb-md-2 mt-md-2 mr-md-5 ml-md-5">
+		
+				<div class="row ml-md-2 mb-md-4 mt-md-2 mr-md-2">
+							<div class="row col-md-4 mt-md-2 ml-md-2 ">
+									<label class=" control-label mr-md-5 ">Carga: </label>
+									<input type="text" class="form-control mt-md-2 col-md-9" id="inlineFormInput" name="fc_esfuerzo">
+							</div>	
+							<div class="row col-md-3 mt-md-2 " >
+									<label class=" control-label mr-md-5">FC Basal: </label>
+									<input type="text" class="form-control mt-md-2 col-md-9" id="inlineFormInput" name="fc_esfuerzo">
+							</div>	
+							<div class="row col-md-3 mt-md-2" >
+									<label class=" control-label mr-md-5">TAS Basal: </label>
+									<input type="text" class="form-control mt-md-2 col-md-9" id="inlineFormInput" name="fc_esfuerzo">
+							</div>								
+				</div>
+		
+				<div class="row ml-md-2 mb-md-4 mt-md-2 mr-md-2">
+							<div class="row col-md-4 mt-md-2 ml-md-2 ">
+									<label class=" control-label mr-md-5 ">TAD Basal: </label>
+									<input type="text" class="form-control mt-md-2 col-md-9" id="inlineFormInput" name="fc_esfuerzo">
+							</div>	
+							<div class="row col-md-4 mt-md-2" >
+									<label class=" control-label mr-md-5">FCM - Edad: </label>
+									<input type="text" class="form-control mt-md-2 col-md-9" id="inlineFormInput" name="fc_esfuerzo">
+							</div>	
+							<div class="row col-md-3 mt-md-2">
+									<label class=" control-label mr-md-5">FC Esfuerzo: </label>
+									<input type="text" class="form-control mt-md-2 col-md-9" id="inlineFormInput" name="fc_esfuerzo">
+							</div>									
+				</div>	
+				
+				<div class="row ml-md-2 mb-md-4 mt-md-2 mr-md-2">
+						<div class="row col-md-4 mt-md-2 ml-md-2 ">
+								<label class=" control-label mr-md-5 ">TAS Esfuerzo: </label>
+								<input type="text" class="form-control mt-md-2 col-md-9" id="inlineFormInput" name="fc_esfuerzo">
+						</div>	
+						<div class="row col-md-4 mt-md-2" >
+								<label class=" control-label mr-md-5">TAD Esfuerzo: </label>
+								<input type="text" class="form-control mt-md-2 col-md-9" id="inlineFormInput" name="fc_esfuerzo">
+						</div>	
+						<div class="row col-md-4 mt-md-2">
+								<label class=" control-label mr-md-5">% FCMP: </label>
+								<input type="text" class="form-control mt-md-2 col-md-9" id="inlineFormInput" name="fc_esfuerzo">
+						</div>									
+				</div>
+		
+				<div class="row ml-md-2 mb-md-4 mt-md-2 mr-md-2">
+						<div class="row col-md-4 mt-md-2 ml-md-2 ">
+								<label class=" control-label mr-md-5 ">ITT: </label>
+								<input type="text" class="form-control mt-md-2 col-md-9" id="inlineFormInput" name="fc_esfuerzo">
+						</div>	
+						<div class="row col-md-4 mt-md-2" >
+								<label class=" control-label mr-md-5">METS: </label>
+								<input type="text" class="form-control mt-md-2 col-md-9" id="inlineFormInput" name="fc_esfuerzo">
+						</div>	
+						<div class="row col-md-3 mt-md-2">
+								<label class=" control-label mr-md-5">ST: </label>
+								<input type="text" class="form-control mt-md-2 col-md-9" id="inlineFormInput" name="fc_esfuerzo">
+						</div>									
+				</div>
+		
+				<div class="row ml-md-2 mb-md-4 mt-md-2 mr-md-2">
+						<div class="row col-md-3 mt-md-2 ml-md-2 ">
+								<label class=" control-label mr-md-5 ">ST (mm): </label>
+								<input type="text" class="form-control mt-md-2 col-md-9" id="inlineFormInput" name="fc_esfuerzo">
+						</div>	
+						<div class="row col-md-4 mt-md-2" >
+								<label class=" control-label mr-md-5">TA Plana: </label>
+								<input type="text" class="form-control mt-md-2 col-md-9" id="inlineFormInput" name="fc_esfuerzo">
+						</div>	
+						<div class="row col-md-5 mt-md-2">
+								<label class=" control-label mr-md-5">Motivo Susp.: </label>
+								<input type="text" class="form-control mt-md-2 col-md-9" id="inlineFormInput" name="fc_esfuerzo">
+						</div>									
+				</div>
+		
+				<div class="row ml-md-2 mb-md-4 mt-md-2 mr-md-2">
+						<div class="row col-md-4 mt-md-2 ml-md-2 ">
+								<label class=" control-label mr-md-5 ">Arritmia SV: </label>
+								<input type="text" class="form-control mt-md-2 col-md-9" id="inlineFormInput" name="fc_esfuerzo">
+						</div>	
+						<div class="row col-md-4 mt-md-2" >
+								<label class=" control-label mr-md-5">Arritmia V: </label>
+								<input type="text" class="form-control mt-md-2 col-md-9" id="inlineFormInput" name="fc_esfuerzo">
+						</div>	
+						<div class="row col-md-4 mt-md-2" >
+								<label class=" control-label mr-md-5">Síntomas: </label>
+								<input type="text" class="form-control mt-md-2 col-md-9" id="inlineFormInput" name="fc_esfuerzo">
+						</div>									
+				</div>
+		
+		</div>					
+		
+</fieldset>	
+
+<fieldset class=" form-group form-inline col-md-7 ml-md-5 mr-md-5 mt-md-5 mb-md-5 " style="font-family: 'Roboto Condensed', sans-serif;">    	
+		<legend>Cámara Gama</legend>							
+			<div class=" container mb-md-2 mt-md-2 mr-md-5 ml-md-5">
+				<h4 class="ml-md-4 mt-md-3 mb-md-3">Apremio</h4>
+		
+						<div class="row ml-md-2 mb-md-2 mt-md-2 mr-md-2">
+							<div class="row col-md-4 mt-md-2 ml-md-2 ">
+									<label class=" control-label mr-md-5 ">Estudio N°: </label>
+									<input type="text" class="form-control mt-md-2 col-md-9" id="inlineFormInput" name="fc_esfuerzo">
+							</div>	
+							<div class="row col-md-4 mt-md-2 " >
+									<label class=" control-label mr-md-5">Fecha: </label>
+									<input type="text" class="form-control mt-md-2 col-md-9" id="inlineFormInput" name="fc_esfuerzo">
+							</div>	
+							<div class="row col-md-4 mt-md-2" >
+									<label class=" control-label mr-md-5">Apellido y Nombre: </label>
+									<input type="text" class="form-control mt-md-2 col-md-9" id="inlineFormInput" name="fc_esfuerzo">
+							</div>								
+						</div>
+		
+						<div class="row ml-md-2 mb-md-4 mt-md-2 mr-md-2">
+							<div class="row col-md-4 mt-md-2 ml-md-2 ">
+									<label class=" control-label mr-md-5 ">Volumen Relativo: </label>
+									<input type="text" class="form-control mt-md-2 col-md-9" id="inlineFormInput" name="fc_esfuerzo">
+							</div>	
+							<div class="row col-md-4 mt-md-2" >
+									<label class=" control-label mr-md-5">VFDVI: </label>
+									<input type="text" class="form-control mt-md-2 col-md-9" id="inlineFormInput" name="fc_esfuerzo">
+							</div>	
+							<div class="row col-md-4 mt-md-2">
+									<label class=" control-label mr-md-5">FSVSI: </label>
+									<input type="text" class="form-control mt-md-2 col-md-9" id="inlineFormInput" name="fc_esfuerzo">
+							</div>									
+						</div>
+					
+							
+						
+			</div>					
+</fieldset>	
+
+<fieldset class=" form-group form-inline col-md-7 ml-md-5 mr-md-5 mt-md-5 mb-md-5 " style="font-family: 'Roboto Condensed', sans-serif;">    	
+		<legend>Gráfico Cámara Gama</legend>							
+			<div class=" container mb-md-2 mt-md-2 mr-md-5 ml-md-5">
+				<h4 class="ml-md-4 mt-md-3 mb-md-5">Apremio</h4>
+				<h4 class="ml-md-4 mt-md-5 mb-md-5">Reposo</h4>
+				<h4 class="ml-md-4 mt-md-5 mb-md-5">Diferencia</h4>
+						
+							
+						
+			</div>					
+</fieldset>	
+</form>
+</body>
+{% endblock %} 
+</html>

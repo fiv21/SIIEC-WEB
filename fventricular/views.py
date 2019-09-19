@@ -11,10 +11,9 @@ def formventricular(request):
     
     if request.method == 'GET':
         q = request.GET.get('q', '')
-        eventos = Pacientes.objects.filter(nombre__icontains=q)
-        #estudios=Estudio.objects.filter(pacientes__incontains=q)
+        eventos = Estudio.objects.filter(pacientes__dni__icontains=q)
+        #estudios=Estudio.objects.all()
         return render(request, 'fventricular/fventricular.html', {'eventos': eventos}) #'estudios': estudios}
-
 
     if request.method == 'POST':
         form=ventricularFormu(request.POST) #indico metodos POST de la transmicion de mis datos
@@ -28,7 +27,7 @@ def formventricular(request):
 def Lista_ventricular(request):
     if request.method == 'GET':
         q = request.GET.get('q', '')
-        eventos = FuncionVentricular.objects.filter(id_func_vent__icontains=q)
+        eventos = FuncionVentricular.objects.filter(paciente_fv__dni__icontains=q)
         return render(request, 'fventricular/listaventricular.html', {'eventos': eventos})
 
 class Edita_ventricular(UpdateView):

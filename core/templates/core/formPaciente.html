@@ -18,6 +18,7 @@
     <input type="text" class="verde" placeholder="Buscar paciente.." name="q" style="" >
       <button type="submit" class="azul"><i class="fa fa-search"></i></button>
   </form>
+  <a class="btn btn-info" href="{% url 'estudioslistado' %}" >Listado de estudios</a>
 <!-- ***************************************************************FORMULARIO ESTUDIO***************************************************************************** -->
 <form method="POST">
     {% csrf_token %}

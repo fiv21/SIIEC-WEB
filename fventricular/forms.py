@@ -40,7 +40,7 @@ class ventricularFormu(forms.ModelForm):
         }
 
         widgets = {
-            'paciente_fv':forms.Select(attrs={'class':'form-control' ,'style':'height:40px' }), 
+            'paciente_fv':forms.Select(attrs={'class':'form-control' ,'style':'height:40px' , 'id':'id_pac_ventricular'}), 
             'vol_relat_rest':forms.TextInput(attrs={'class':'form-control'}), 
             'vfdvi_rest':forms.TextInput(attrs={'class':'form-control'}), 
             'fvsvi_rest':forms.TextInput(attrs={'class':'form-control'}), 
