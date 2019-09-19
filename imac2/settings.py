@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'mpi',
     'fventricular',
     'usuarios',
+    'aplicativo',
 ]
 
 MIDDLEWARE = [

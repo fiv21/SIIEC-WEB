@@ -21,6 +21,7 @@ from ergo import views
 from mpi  import views
 from usuarios import views
 from fventricular import views
+from aplicativo import views
 
 
 urlpatterns = [
@@ -30,5 +31,6 @@ urlpatterns = [
     path('', include('mpi.urls')),
     path('', include('usuarios.urls')),
     path('', include('fventricular.urls')),
+    path('', include('aplicativo.urls')),
     path('admin/', admin.site.urls),
 ]

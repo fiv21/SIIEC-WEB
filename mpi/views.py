@@ -40,3 +40,5 @@ class Borra_mpi(DeleteView):
     template_name='mpi/borrampi.html'
     def get_success_url(self):
         return reverse('listampi')
+
+
